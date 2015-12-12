@@ -27,6 +27,22 @@ hexo generate
 
 This generates all static files and puts them under the `public/` folder. At this point, you no longer need anything other than a browser to open the website locally; and to serve it publicly, the only thing you need is some kind of web server with static content serving capabilities, such as Nginx.
 
+Here's a sample Nginx configuration:
+
+```
+server {
+    listen 80;
+    server_name yalingunayer.com;
+
+    location / {
+        root /repos/ygcom2/public;
+        error_page 404 /404/index.html;
+        index index.html;
+        autoindex off;
+    }
+}
+```
+
 ## Installing the Theme
 The website uses the [ygunayer/yg-apollo](https://github.com/ygunayer/yg-apollo) theme by default (configurable at [_config.yml](_config.yml)). See the [Installation section](https://github.com/ygunayer/yg-apollo#installing) in the `yg-apollo` documentation for instructions on how to install the theme.
 

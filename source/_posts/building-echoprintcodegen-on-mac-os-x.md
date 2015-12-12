@@ -18,7 +18,7 @@ First, clone the project from the Github repository.
 git clone https://github.com/echonest/echoprint-codegen.git
 ```
 
-And then build the project by going into the `src` directory and typing ```make```… but it can’t be built, right?
+And then build the project by going into the `src` directory and typing `make`… but it can’t be built, right?
 
 The reason it won’t build is that it has two dependencies that must be installed on your PC: [Boost](http://boost.org), a very popular C++ library which will be built-in with the upcoming C++ release, and [TagLib](https://taglib.github.io), a C++ IDv3 tag library. But don’t worry, it’s extremely easy to install both using [Homebrew].
 
