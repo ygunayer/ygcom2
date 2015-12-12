@@ -28,7 +28,7 @@ hexo generate
 This generates all static files and puts them under the `public/` folder. At this point, you no longer need anything other than a browser to open the website locally; and to serve it publicly, the only thing you need is some kind of web server with static content serving capabilities, such as Nginx.
 
 ## Installing the Theme
-The website uses the [ygunayer/yg-apollo](https://github.com/ygunayer/yg-apollo) theme by default (configurable at [_config.yml](_config.yml)). See the [Installation section](https://github.com/ygunayer/yg-apollo#Installation) in the `yg-apollo` documentation for instructions on how to install the theme.
+The website uses the [ygunayer/yg-apollo](https://github.com/ygunayer/yg-apollo) theme by default (configurable at [_config.yml](_config.yml)). See the [Installation section](https://github.com/ygunayer/yg-apollo#installing) in the `yg-apollo` documentation for instructions on how to install the theme.
 
 ### License
 MIT
