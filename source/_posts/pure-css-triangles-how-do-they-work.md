@@ -60,7 +60,7 @@ Great! Now, let’s specify different lengths and colors for each side and see w
 
 Neat. If we examine the heights of each triangle, we can see that the width of the borders on each side correspond to the height of the triangle that lands on that side.
 
-![Border heights in action](images/border-height.jpg)
+{% asset_img border-height.jpg Border heights in action %}
 
 With this knowledge, we can easily create other arrows facing each of the 8 directions now.
 
