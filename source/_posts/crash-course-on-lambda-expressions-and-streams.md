@@ -267,7 +267,7 @@ Since streams are conceptually lazy, you'll need to materialize them into generi
 
 #### Optional
 
-In Java, every instance of `Object` and its sub-classes can be `null`, so you have to manually check for null values in your business. The downside of traditional null-checking is that it's error-prone because it's incredibly easy to forget to do. The `Optional<T>``` class introduced in Java 8 aims to overcome that by wrapping objects and requiring you to be explicit about null-checking. C# does not have a direct equivalent, but the `?` suffix which is the equivalent of using `Nullable<T>` can be used to some extent.
+In Java, every instance of `Object` and its sub-classes can be `null`, so you have to manually check for null values in your business. The downside of traditional null-checking is that it's error-prone because it's incredibly easy to forget to do. The `Optional<T>` class introduced in Java 8 aims to overcome that by wrapping objects and requiring you to be explicit about null-checking. C# does not have a direct equivalent, but the `?` suffix which is the equivalent of using `Nullable<T>` can be used to some extent.
 
 In a functional programming perspective, Optional is a Stream with a single element, so the functional operations listed in the Functional Operations section does apply to it as well. One extra method that Optional defines is the `ifPresent(Consumer<T> fn)` method which invokes the provided lambda expression when the contained value is present, which can be extremely useful.
 
