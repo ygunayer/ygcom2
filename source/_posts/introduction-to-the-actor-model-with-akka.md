@@ -11,6 +11,8 @@ Disclaimer: This post assumes that you're at least somewhat familiar with Scala.
 
 <!-- more -->
 
+> Next article is up! Read it over at [Actor-based Number Guessing Game in Akka](/blog/actor-based-number-guessing-game-in-akka)
+
 ## History and Definition
 The actor model is a concurrency model based on a number of principles first designed by [Carl Hewitt](https://en.wikipedia.org/wiki/Carl_Hewitt) et al. and published in 1973 under an article named "[A Universal Modular ACTOR Formalism for Artificial Intelligence](http://ijcai.org/Past%20Proceedings/IJCAI-73/PDF/027B.pdf)". It relies on individual processing units that can communicate with the oustide world (including other actors) through asynchronous messaging, and was perhaps first implemented commercially by Ericsson in the late 80's as the basis of the concurrent programming language [Erlang](http://www.erlang.org/). The model has recently gained a mainstream attention thanks to the rising popularity of Scala and Akka, and the ever-increasing need for more concurrent programs.
 
