@@ -1,6 +1,6 @@
 ---
 title: Actor-based Number Guessing Game in Akka
-date: 2016-04-05 00:00
+date: 2016-07-22 00:00
 tags: [Scala, Akka, Actor Model]
 ---
 Now that the basics of the actor model is out of the way (thanks to the [previous article](/blog/introduction-to-the-actor-model-with-akka)), it's time to make something with it! We'll begin by creating an Akka project from scratch, and then move on to implementing a number guessing game based on actors, which will give us an easy start in modeling actor-based systems.
