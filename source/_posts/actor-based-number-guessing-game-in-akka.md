@@ -14,9 +14,9 @@ Note: I won't go into any details about the model nor Akka's implementation of i
 > See the code at Github: https://github.com/ygunayer/guessing-game
 
 ## Preparing the Environment
-Before we can get started on creating our first project, we need to install a few dependencies first. These are JDK, Scala, Scala Build Tool (or SBT for short) and Lightbend [Activator](http://www.lightbend.com/community/core-tools/activator-and-sbt) (it's not really a dependency, but it's convenient). You'll have to install JDK on your own, but you can just skip Scala and SBT and install Activator right away because it can install them for you (provided you've installed JDK).
+We'll need to install a few things before we can get started with our project: JDK, Scala, Scala Build Tool (or SBT for short) and Lightbend [Activator](http://www.lightbend.com/community/core-tools/activator-and-sbt) (it's not really a dependency, but it's very convenient to install, and we might use it in future articles). You'll have to install JDK on your own, and as for Scala and SBT, you can go ahead and install Activator right away because it can install them for you (provided that you have JDK installed).
 
-For reference, here's a list of what I have installed at the time of this writing:
+For reference, here's a list of what I had installed at the time of this writing:
 - [JDK 1.8.0_51](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Scala 2.11.7](http://www.scala-lang.org/download/)
 - [SBT 0.13.8](http://www.scala-sbt.org/download.html)
@@ -25,7 +25,7 @@ For reference, here's a list of what I have installed at the time of this writin
 When it comes to IDEs, the choices are pretty much the same as Java, it's either [Scala IDE](http://scala-ide.org/) (Eclipse-based) or [IntelliJ IDEA](https://www.jetbrains.com/idea/) (Community Edition will do), but they both require some preparation before you can use them.
 
 ### Scala IDE
-The Eclipse-based Scala IDE does not have a built-in way to import SBT-based projects, so you'll have to install the SBT plugin [sbteclipse](https://github.com/typesafehub/sbteclipse). As documented in the repository page, you can install it directly to your computer, or add it as a dependency on your project so that it gets installed once you've started building the project with SBT. I recommend the former method, because an IDE plugin is not technically a prerequisite of a project, but rather, a convenience for programmers.
+The Eclipse-based Scala IDE does not have a built-in way to import SBT-based projects, so you'll have to install the SBT plugin [sbteclipse](https://github.com/typesafehub/sbteclipse). As documented in the repository page, you can install it directly on your computer, or add it as a dependency to your project so that it gets installed once you've started building the project with `sbt`. I recommend the former method, because an IDE plugin is not technically a prerequisite of a project, but rather, a convenience for programmers.
 
 When you've got it installed, all you have to do import your project into Scala IDE is to launch up a terminal, go into the project folder, and run
 
@@ -34,9 +34,9 @@ sbt eclipse
 ```
 
 ### IntelliJ IDEA
-IDEA does not support Scala by out-of-the-box, so you'll have to install a plugin in order to get it to work. Fortunately, IDEA does have it on its plugin repository, so all you need to do is to just go into the plug-in options and install it from there. Once you've got it installed, you're all set, as it comes with the ability to import SBT-based projects, and create projects based on Activator templates. See [Creating and Running Your Scala Application](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-scala-application.html?origin=old_help) at JetBrains website for more detailed instructions.
+In terms of Scala support, the default installation of IDEA is even less capable than Scala IDE, and requires you to install an official plugin. All you have to do to get it is to just go into the plug-in options and install the Scala plugin from there. Since it also comes with the ablity to import SBT projects (and create projects based on Activator templates), you'll be all set once you've got the plugin installed. See [Creating and Running Your Scala Application](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-scala-application.html?origin=old_help) at JetBrains website for more detailed instructions.
 
-Once you've got it installed, you can safely import any SBT project, but keep in mind that IDEA likes to keep its own Ivy cache (where SBT downloads the dependencies of all projects and stores them for later use), and this means that it'll re-download any dependency you've got installed through SBT using the command line. If that bothers you, here's how you can get IDEA to use the same cache folder as the default one: [http://stackoverflow.com/questions/23845357/changing-ivy-cache-location-for-sbt-projects-in-intellij-idea](http://stackoverflow.com/questions/23845357/changing-ivy-cache-location-for-sbt-projects-in-intellij-idea)
+One thing to note here is that IDEA likes to keep its own Ivy cache (where SBT downloads the dependencies of all projects and stores them for later use), so it'll re-download any dependency you might have pre-installed using the SBT's own command line tool (i.e. `sbt run` or `sbt build`), or vice-versa. If that bothers you, here's how you can get IDEA to use the same cache folder as the default one: [http://stackoverflow.com/questions/23845357/changing-ivy-cache-location-for-sbt-projects-in-intellij-idea](http://stackoverflow.com/questions/23845357/changing-ivy-cache-location-for-sbt-projects-in-intellij-idea)
 
 ## Creating the Project
 While scaffolding tools like Activator are great, I think it's important to be able to create projects manually, and from scratch, because it helps you understand how things really work.
@@ -103,10 +103,13 @@ object Application extends App {
 }
 ```
 
-Once you've laid out the project structure, all is left to import the project into your IDE. To rephrase, if you're using IntelliJ IDEA just import the folder directly, and if you're using Scala IDE instead, navigate into the project folder, run `sbt eclipse`, and then import the project into Eclipse.
+Once you've laid out the project structure, all that's left is to import the project into your IDE. To rephrase:
+
+- For IntelliJ IDEA, just import the folder directly
+- For Scala IDE, navigate into the project folder, run `sbt eclipse`, and then import the project as an existing project
 
 ## Planning
-Before jumping ahead to implement the game, let's focus on planning our approach. As with any problem in programming, we'll first model its domains, determine the way data flows, and then move on to the actual implementation.
+Let's not jump right into the implementation and instead plan our approach first. As with any problem in programming, we'll first model its domains, determine the way data flows, and then move on to the actual implementation.
 
 Let's recall our game flow and try to determine what our domains are:
 
