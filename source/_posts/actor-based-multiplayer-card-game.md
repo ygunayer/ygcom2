@@ -381,7 +381,7 @@ def determineNextState(card: Card, playerInfo: PlayerInformation, opponentInfo: 
 
 Ouch! This looks a bit messy and difficult to maintain, so we'd better write a few (albeit incomprehensive) unit tests for it. We'll have three test cases; one for fishing a card, another for a regular round without fishing a card, and another to verify that the game successfully terminates when all cards are played out. So here they are, in order:
 
-```
+```scala
 class GameRoomActorSpec extends FlatSpec with Matchers {
   it should "fish when necessary" in {
     val baseDeck = CardStack.sorted
