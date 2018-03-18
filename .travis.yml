@@ -1,23 +1,24 @@
 branches:
   only:
-    - /^v\d+\.\d+\d.\d+$
+    - /^v\d+\.\d+\.\d+$$/
+
+git:
+  submodules: false
 
 language: node_js
 
 node_js:
-  - "7"
   - "8"
 
 before_install:
-  - npm install -g hexo
-
-install:
-  - npm install
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
+  - npm install -g hexo-cli gulp
 
 script:
   - hexo generate
 
-after_sucess:
+after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t ygunayer/yalingunayer.com:$TRAVIS_TAG -t ygunayer/yalingunayer.com:latest .
   - docker push ygunayer/yalingunayer.com:$TRAVIS_TAG

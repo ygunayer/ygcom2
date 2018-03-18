@@ -2,7 +2,7 @@ FROM nginx:1.12.1-alpine
 
 COPY ./public /var/www
 
-EXPOSE 9000
+EXPOSE 80
 
 RUN rm /etc/nginx/conf.d/*.conf
 
