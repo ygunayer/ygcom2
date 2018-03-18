@@ -1,0 +1,3 @@
+[submodule "themes/yg-apollo"]
+	path = themes/yg-apollo
+	url = git@github.com:ygunayer/yg-apollo.git

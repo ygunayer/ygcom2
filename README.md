@@ -2,6 +2,20 @@ The content and metadata for my personal website, [http://yalingunayer.com](http
 
 I've re-used all content from my previous website repository, [ygunayer/yalingunayer.com](https://github.com/ygunayer/yalingunayer.com)
 
+## Building
+Run the build script.
+
+```bash
+$ ./build/build.sh
+```
+
+The script performs the following operations:
+- Update git submodules
+- Install dependencies
+- Generate the static files for the website
+- Build a Docker image that runs nginx to serve the said static files
+	- The image will be tagged `ygunayer/yalingunayer.com:latest` and `ygunayer/yalingunayer.com:$VERSION`, where the variable `$VERSION` is read from [VERSION](VERSION)
+
 ## Running
 The site is built on the static content generator [Hexo](https://github.com/hexojs/hexo), and was bootstrapped by using `hexo init`. Hexo has two run modes, live and static. To build the site, simply install the dependencies using `npm install`, then pick a run mode:
 
