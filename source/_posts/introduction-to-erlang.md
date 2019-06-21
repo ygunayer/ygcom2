@@ -1,6 +1,6 @@
 ---
 title: Introduction to Erlang
-date: 2019-07-24 00:00
+date: 2019-06-21 00:00
 tags: [Erlang, Actor Model]
 ---
 As mentioned in my [introductory article to the actor model](/blog/introduction-to-the-actor-model-with-akka), the programming language Erlang implements the actor model as its core functionality, so anyone who's got exposed to Akka is bound to have heard about it, and quite possibly they've become interested with it.
