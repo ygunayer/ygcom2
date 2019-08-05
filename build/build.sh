@@ -1,9 +1,16 @@
 #!/bin/sh
-VERSION=$(cat VERSION)
+set -e
+
+VERSION="$1"
+if [ -z "$VERSION" ]; then
+    echo "Please specify a version."
+    exit 1
+fi
+
 echo "Building version $VERSION"
 
 git submodule update --init --recursive
-yarn
-(cd themes/yg-apollo; yarn; gulp)
+npm i
+(cd themes/yg-apollo; npm i; gulp)
 hexo generate
 docker build -t ygunayer/yalingunayer.com:latest -t ygunayer/yalingunayer.com:$VERSION .
