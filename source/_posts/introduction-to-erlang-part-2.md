@@ -79,7 +79,9 @@ We can *register* a process on its host node by invoking the `register(RegName, 
 #### Simple Example
 So let's see this behavior in action. First up, we'll use the dummy hostname of `erlang.example` in our example, so make sure to put an entry in your hosts file:
 
-```127.0.0.1 erlang.example```
+```
+127.0.0.1 erlang.example
+```
 
 Then, let's have the good ol' `foo` and `bar` modules running on aptly-named Erlang shells.
 
