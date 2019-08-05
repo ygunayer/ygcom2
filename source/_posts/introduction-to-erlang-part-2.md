@@ -85,7 +85,7 @@ So let's see this behavior in action. First up, we'll use the dummy hostname of 
 
 Then, let's have the good ol' `foo` and `bar` modules running on aptly-named Erlang shells.
 
-> **Note:** The code to this example can be found in my GitHub repo, [erlang-examples/distributed](https://github.com/ygunayer/erlang-examples/tree/master/distributed)
+> **Note:** The code to this example can be found in my GitHub repo: [erlang-examples/distributed](https://github.com/ygunayer/erlang-examples/tree/master/distributed)
 
 **foo.erl**
 ```erl
@@ -198,7 +198,7 @@ To put simply, a release refers to a bundles of applications that are to be depl
 ### Example - Guessing Game as OTP Application
 Let's rewrite our guessing game in Erlang/OTP fashion to demonstrate what we've talked about so far. We'll retain the client-server nature of our game, so we'll need a `gen_server` implementation for our game server. As for the client, the necessity of interacting with the user lessens the relevance of `gen_server`, so we'll instead go with `gen_statem`.
 
-> **Hint:** The code to the examples below can be found on the GitHub repo [ygunayer/erlang-examples](https://github.com/ygunayer/erlang-examples) under the folder `guess-otp`
+> **Note:** The code to this example can be found in my GitHub repo: [erlang-examples/guess-otp](https://github.com/ygunayer/erlang-examples/tree/master/guess-otp)
 
 #### Behaviors in Detail
 Before moving on to our implementation, let's quickly review the callbacks for both the behaviors.
