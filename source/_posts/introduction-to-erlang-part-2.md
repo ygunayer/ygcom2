@@ -1,7 +1,7 @@
 ---
 title: Introduction to Erlang - Part 2
 date: 2019-08-03 22:00
-tags: [Erlang, Actor Model, Game Development]
+tags: [Erlang, Actor Model]
 ---
 In our [previous example](/blog/introduction-to-erlang) we've explored the basics of Erlang, and built simple, but concurrent and stateful apps for demonstration. With the basics in place, it's time to move on to the actual stuff that makes Erlang such an excellent language for building fault-tolerant apps for distributed networks.
 
