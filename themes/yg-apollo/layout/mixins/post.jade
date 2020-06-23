@@ -1,0 +1,45 @@
+mixin postInfo(item, options)
+  .post-meta
+    .post-tools
+      if options && options.showSharingInfo
+        .post-links
+          if theme.github.repo
+            - var issueUrl = `https://github.com/${theme.github.repo}/issues/new?` + encodeURI(`title=About "${item.title}"&body=About [${item.title}](${item.path.replace(/\/$/g, '')}.md)...`)
+            a(href=issueUrl, target='_blank', title='Report an Error') Report an Error
+          a(href=url_for(item.path), title='Permalink') Permalink
+    .post-time
+      != full_date(item.date, 'll')
+
+mixin posts()
+  ul.home.post-list
+    - page.posts.each(function(item, index) {
+      li.post-list-item
+        article.post-block
+          h2.post-title
+            a.post-title-link(href=url_for(item.path))
+              != item.title
+          +postInfo(item)
+          .post-content
+            != item.excerpt
+          a.read-more(href=url_for(item.path)) Read More...
+    - })
+
+mixin post(item, options)
+  .post
+    article.post-block
+      h1.post-title
+        != item.title
+      if item.pageType != 'page'
+        +postInfo(item, options)
+      .post-content
+        != item.content
+      - var tagCount = page.tags && page.tags.length || 0
+      if tagCount > 0
+        aside.post-extras
+          div.tag-list
+            label Tags: 
+            - page.tags.each(function(tag, tagIdx) {
+              a(href=url_for(tag.path), class='tag-list-item') #{tag.name}
+              if tagIdx < tagCount - 1
+                != ', '
+            - })

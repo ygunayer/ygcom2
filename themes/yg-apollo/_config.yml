@@ -1,0 +1,15 @@
+menu:
+  home:
+    title: Home
+    url: /
+
+
+favicon: /favicon.png
+logo: /favicon.png
+
+mathjax:
+duoshuo:
+ga:
+ba:
+twitter:
+github:
