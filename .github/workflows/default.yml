@@ -1,0 +1,34 @@
+name: yalingunayer.com CI Pipeline
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+      - draft
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Build
+        run: |
+          .github/scripts/setup-build.sh
+
+      - name: Build Image
+        run: |
+          docker build . --file Dockerfile --tag $IMAGE_TAG
+
+      - name: Publish Image
+        if: ${{ env.SHOULD_PUBLISH == '1' }}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          docker push $IMAGE_TAG
