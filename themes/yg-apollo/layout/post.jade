@@ -1,0 +1,18 @@
+extends partial/layout
+
+block site_title
+  != page.title + " · " + config.title
+
+block description
+  - var desc = page.content.slice(0, 600).replace(/<[^>]+>/g,"")
+  meta(name="description", content=desc)
+
+block container
+  include mixins/post
+  include mixins/paginator
+  +post(page, {showSharingInfo: true})
+  +paginate_post()
+  include partial/comment
+  
+block footer
+  include partial/footer

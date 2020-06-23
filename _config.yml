@@ -84,20 +84,16 @@ theme_config:
       title: Github
       url: https://github.com/ygunayer
       icon: fa fa-github
-    facebook:
-      title: Facebook
-      url: https://facebook.com/Yalin.Gunayer
-      icon: fa fa-facebook
     linkedin:
       title: LinkedIn
       url: https://tr.linkedin.com/in/ygunayer
       icon: fa fa-linkedin
   favicon: /favicon.png
   logo: /favicon.png
-  disqus: ygunayer
   ga: UA-71307141-1
   twitter: 'ygunayer'
-  adsense: ca-pub-2323701490870538
+  github:
+    repo: ygunayer/ygcom2
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
