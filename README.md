@@ -1,25 +1,18 @@
-The content and metadata for my personal website, [http://yalingunayer.com](http://yalingunayer.com)
-
-I've re-used all content from my previous website repository, [ygunayer/yalingunayer.com](https://github.com/ygunayer/yalingunayer.com)
-
-## Building
-Run the build script.
-
-```bash
-$ ./build/build.sh
-```
-
-The script performs the following operations:
-- Update git submodules
-- Install dependencies
-- Generate the static files for the website
-- Build a Docker image that runs nginx to serve the said static files
-	- The image will be tagged `ygunayer/yalingunayer.com:latest` and `ygunayer/yalingunayer.com:$VERSION`, where the variable `$VERSION` is read from [VERSION](VERSION)
+# ygcom2
+The content and metadata for my personal website, [http://yalingunayer.com](http://yalingunayer.com).
 
 ## Running
-The site is built on the static content generator [Hexo](https://github.com/hexojs/hexo), and was bootstrapped by using `hexo init`. Hexo has two run modes, live and static. To build the site, simply install the dependencies using `npm install`, then pick a run mode:
+### Theme
+In contrast to most Hexo websites, this website includes its theme directly in the repository, so it must be built before running the website. Similarly, in order for the changes in the theme's source code to be reflected on the website's appearance, it must be rebuilt.
 
-### Live Mode
+```bash
+$ npm run build:theme
+```
+
+> The theme's build process does not support live development mode, so the build script must be run manually after each change.
+
+### Website
+#### Live Mode
 This is an ephemeral mode intended for development environments as it runs a Hexo server instance in the background, which in turn watches your files for any changes and reloads any open website session using BrowserSync once a change occurs. To run the website in this mode, simply run the following command:
 
 ```
@@ -32,11 +25,17 @@ If you're interested in a more verbose output, enable debug logging.
 hexo server --debug
 ```
 
-### Static Mode
+#### Static Mode
 This is more like a build/compile step rather than a run mode, as it generates static HTML files for all possible pages that might exist in your website, and also the any files that can be served statically (CSS, JS, fonts, etc.). As you might guess, this is intended for production environments. To build the website in this manner, simply run the following command:
 
+```bash
+$ hexo generate
 ```
-hexo generate
+
+There's also an NPM script that runs the same command.
+
+```bash
+$ npm run build:website
 ```
 
 This generates all static files and puts them under the `public/` folder. At this point, you no longer need anything other than a browser to open the website locally; and to serve it publicly, the only thing you need is some kind of web server with static content serving capabilities, such as Nginx.
@@ -57,8 +56,20 @@ server {
 }
 ```
 
-## Installing the Theme
-The website uses the [ygunayer/yg-apollo](https://github.com/ygunayer/yg-apollo) theme by default (configurable at [_config.yml](_config.yml)). See the [Installation section](https://github.com/ygunayer/yg-apollo#installing) in the `yg-apollo` documentation for instructions on how to install the theme.
+If you have Python installed, you can simply spin up a SimpleHTTPServer instance to serve the `public/` folder
+
+```bash
+$ cd public/
+$ python -m SimpleHTTPServer 8080
+```
+
+## Docker
+To package the website as a Docker image, simply run `docker build` with the tag of your choice. The website will be built entirely within a Docker container, and the build artifacts will be handed over to a lightweight `nginx` Docker image with no clutter or leftovers from the build process.
+
+```bash
+$ docker build -t ygunayer/yalingunayer.com:dev
+$ docker run -p 80:80 --rm ygunayer/yalingunayer.com:dev
+```
 
 ### License
 MIT
