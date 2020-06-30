@@ -76,6 +76,9 @@ theme_config:
     browse:
       title: Browse
       url: /browse
+    tools:
+      title: Tools
+      url: /tools
     twitter:
       title: Twitter
       url: https://twitter.com/ygunayer
