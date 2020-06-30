@@ -7,14 +7,15 @@ const rimraf = (() => {
 })();
 const Bundler = require('parcel-bundler');
 
-async function build() {
+async function build({isDev = false}) {
   const srcDir = path.join(__dirname, 'src');
   const outDir = path.join(__dirname, 'source');
 
   const inputFile = path.join(srcDir, 'scss/apollo.scss');
   const bundler = new Bundler(inputFile, {
     outDir,
-    hmr: false,
+    hmr: isDev,
+    watch: isDev,
     autoInstall: false,
     detailedReport: true
   });
@@ -24,7 +25,7 @@ async function build() {
   await fs.promises.copyFile(path.join(srcDir, 'favicon.png'), path.join(outDir, 'favicon.png'));
 }
 
-build()
+build({isDev: process.env.NODE_ENV !== 'production'})
   .catch(err => {
     console.error(err);
     process.exit(-1);
