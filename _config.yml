@@ -93,7 +93,6 @@ theme_config:
       icon: fa fa-linkedin
   favicon: /favicon.png
   logo: /favicon.png
-  ga: UA-71307141-1
   twitter: 'ygunayer'
   github:
     repo: ygunayer/ygcom2
