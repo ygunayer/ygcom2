@@ -96,6 +96,7 @@ theme_config:
   twitter: 'ygunayer'
   github:
     repo: ygunayer/ygcom2
+  goatcounter: ygunayer
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
