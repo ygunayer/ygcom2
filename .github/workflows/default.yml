@@ -16,19 +16,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Build
+      - name: Build and Publish Image
         run: |
-          .github/scripts/setup-build.sh
+          REF_ID=${GITHUB_REF##*/}
+          IMAGE_TAG="ygunayer/yalingunayer.com:$REF_ID"
 
-      - name: Build Image
-        run: |
+          SHOULD_PUBLISH="0"
+          re="refs\/tags\/[0-9]+\.[0-9]+\.[0-9]+"
+          if [[ "$GITHUB_EVENT_NAME" -eq "push" ]] && [[ "$GITHUB_REF" =~ $re ]]; then
+              SHOULD_PUBLISH="1"
+          fi
+
           docker build . --file Dockerfile --tag $IMAGE_TAG
 
-      - name: Publish Image
-        if: ${{ env.SHOULD_PUBLISH == '1' }}
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: |
-          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-          docker push $IMAGE_TAG
+          if [[ $SHOULD_PUBLISH -eq "1" ]]; then
+            docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+            docker push ${{steps.setup_build.image_tag}}
+          else
+            echo "Commit ref $GITHUB_REF will not be published"
+          fi
