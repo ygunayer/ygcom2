@@ -31,7 +31,7 @@ jobs:
 
           if [[ $SHOULD_PUBLISH -eq "1" ]]; then
             docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
-            docker push ${{steps.setup_build.image_tag}}
+            docker push $IMAGE_TAG
           else
             echo "Commit ref $GITHUB_REF will not be published"
           fi
