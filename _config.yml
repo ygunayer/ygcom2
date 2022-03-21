@@ -97,6 +97,9 @@ theme_config:
   github:
     repo: ygunayer/ygcom2
   goatcounter: ygunayer
+  umami:
+    website_id: 94ab2f1d-97de-462e-a613-2ee64f3bc2d1
+    url: https://umami.yalingunayer.com/umami.js
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html

@@ -30,3 +30,7 @@ if theme.disqus
 
 if theme.goatcounter
   script(data-goatcounter="https://" + theme.goatcounter + ".goatcounter.com/count" async=true src="//gc.zgo.at/count.js")
+
+if theme.umami
+  script(data-website-id=theme.umami.website_id async=true defer=true src=theme.umami.url)
+
