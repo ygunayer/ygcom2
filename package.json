@@ -8,7 +8,7 @@
     "build:theme": "NODE_ENV=production node themes/yg-apollo/build",
     "build:website": "NODE_ENV=production hexo generate",
     "build": "npm run build:theme && npm run build:website",
-    "start:theme": "NODE_ENV=development node themes/yg-apollo/build",
+    "start:theme": "node themes/yg-apollo/build",
     "start:website": "hexo serve",
     "start": "concurrently \"npm:start:theme\" \"npm:start:website\""
   },
@@ -33,5 +33,8 @@
     "parcel-bundler": "1.12.4",
     "rimraf": "3.0.2",
     "sass": "1.26.9"
+  },
+  "volta": {
+    "node": "18.13.0"
   }
 }
