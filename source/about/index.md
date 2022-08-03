@@ -4,14 +4,24 @@ pageType: page
 activeMenuItem: about
 openGraph: false
 ---
-Welcome! I’m Yalın, a software engineer based in Turkey, and this is my personal website where I post blog articles about video games, programming, and the software industry in general.
+I’m Yalin, an software engineer based in Turkey. After over 12 years of hands-on engineering experience in the industry, I started offering professional software development services as an independent engineer.
 
-## About Me
-I hold a bachelor's degree in computer engineering and a master's degree in business administration, and I currently work at [Craftbase](https://craftbase.io/) as a full-time software developer.
+Right now I'm offering my services as a full-time engineer for [tl;dv](https://tldv.io/), where we build a live recording and notetaking solution for online video calls on Google Meet and Zoom (more to come!).
 
-I thrive in well-designed, well-architectured, and technology-rich software, and while I'm mostly interested concurreny, functional programming, and game development, I keep challenging myself by trying to learn different programming languages with different paradigms and/or design principles.
+If you're interested to talk about my services, or to talk about software in general, please reach me out at *yalin [at] gunayer [dot] com*, or through one of my online profiles listed below:
+- GitHub: [https://github.com/ygunayer](https://github.com/ygunayer)
+- LinkedIn: [https://tr.linkedin.com/in/ygunayer](https://tr.linkedin.com/in/ygunayer)
+- Twitter: [https://twitter.com/ygunayer](https://twitter.com/ygunayer)
 
-Professionally, I'm most proficient in web development and high-level software architectures, but I've also had substantial experience in building highly-concurrent desktop applications. If you're interested in more details, feel free to contact me at [GitHub](https://github.com/ygunayer) or [LinkedIn](https://tr.linkedin.com/in/ygunayer).
+## What I Do
+Throughout my career I've had the pleasure of working in variety of projects, building anything from regular CRUD-based web apps to regular websites, and to very exciting things like:
+- A private cloud storage system similar to Dropbox and Google Drive, including both the server, the web UI, and desktop apps for real-time synchronization
+- A real-estate listing website similar to Zillow
+- Several search engines capable of both structured, full-text and geographical searches
+- Several metrics aggregation pipelines
+- Initiated infrastructure-as-code on a project based in Google Cloud and created a 1:1 on-premise version of it
+- A rule-based anomaly detection system using a custom-built DSL
 
-## About the Website
-The website is built with the static content generator [Hexo](https://hexo.io), and a modified version of its beautiful [Apollo](https://github.com/pinggod/hexo-theme-apollo) theme. The source code is available on Github at [ygunayer/ygcom2](https://github.com/ygunayer/ygcom2) for the website and content, and [ygunayer/yg-apollo](https://github.com/ygunayer/yg-apollo) for the modified version of the theme.
+I have hands-on experience working with a diverse set of programming languages, paradigms and technologies, but my primary tech consists of Java (vanilla, Spring Boot), JavaScript (React.js, Node.js, TypeScript), PostgreSQL, Docker, and Elasticsearch.
+
+In my free time I like working on less mainstream stuff like Rust, Erlang, Elixir, Pony, and also on game development using Godot Engine and Unreal Engine.
