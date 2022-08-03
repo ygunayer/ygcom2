@@ -4,7 +4,7 @@ pageType: page
 activeMenuItem: about
 openGraph: false
 ---
-I’m Yalin, an software engineer based in Turkey. After over 12 years of hands-on engineering experience in the industry, I started offering professional software development services as an independent engineer.
+I’m Yalin, a software engineer based in Turkey. After over 12 years of hands-on engineering experience in the industry, I started offering professional software development services as an independent engineer.
 
 Right now I'm offering my services as a full-time engineer for [tl;dv](https://tldv.io/), where we build a live recording and notetaking solution for online video calls on Google Meet and Zoom (more to come!).
 
@@ -17,6 +17,7 @@ If you're interested to talk about my services, or to talk about software in gen
 Throughout my career I've had the pleasure of working in variety of projects, building anything from regular CRUD-based web apps to regular websites, and to very exciting things like:
 - A private cloud storage system similar to Dropbox and Google Drive, including both the server, the web UI, and desktop apps for real-time synchronization
 - A real-estate listing website similar to Zillow
+- A payment gateway similar to Stripe, capable of processing payments from all Turkish banks and payment processors, as well as many global payment processors
 - Several search engines capable of both structured, full-text and geographical searches
 - Several metrics aggregation pipelines
 - Initiated infrastructure-as-code on a project based in Google Cloud and created a 1:1 on-premise version of it
