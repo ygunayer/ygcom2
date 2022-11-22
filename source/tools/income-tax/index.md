@@ -37,12 +37,16 @@ You can use this tool to calculate the income tax for any given amount.
         <th>Tax Year</th>
         <td class="radio-group">
           <label>
-            <input type="radio" name="taxYear" value="2021" />
-            <strong>2021</strong>
+            <input type="radio" name="taxYear" value="2023" checked />
+            <strong>2023</strong>
           </label>
           <label>
-            <input type="radio" name="taxYear" value="2022" checked />
+            <input type="radio" name="taxYear" value="2022" />
             <strong>2022</strong>
+          </label>
+          <label>
+            <input type="radio" name="taxYear" value="2021" />
+            <strong>2021</strong>
           </label>
         </td>
       </tr>

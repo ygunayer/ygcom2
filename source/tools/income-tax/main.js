@@ -12,6 +12,13 @@ var TaxRateBreakpointsByYear = {
     {min: 70000, max: 170000, rate: .27},
     {min: 170000, max: 880000, rate: .35},
     {min: 880000, max: Infinity, rate: .4}
+  ],
+  2023: [
+    {min: 0, max: 71337, rate: .15},
+    {min: 71337, max: 156061, rate: .20},
+    {min: 156061, max: 378981, rate: .27},
+    {min: 378981, max: 1961784, rate: .35},
+    {min: 1961784, max: Infinity, rate: .4}
   ]
 };
 
