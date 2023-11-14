@@ -87,13 +87,6 @@ You can use this tool to calculate the income tax for any given amount.
           </div>
         </td>
       </tr>
-      <tr data-input="bagkurLevel">
-        <th>Bag-Kur Level</th>
-        <td>
-          <input id="in-bagkur-level" name="bagkurLevel" type="range" min="0" max="7" step="1" value="1" />
-          <label for="in-bagkur-level" style="margin-left: .5em"><strong>1 (12.660 TRY annual expense)</strong></label>
-        </td>
-      </tr>
     </tbody>
     <tfoot style="border-top: 1px solid #ccc">
     </tfoot>

@@ -1,11 +1,4 @@
 var TaxRateBreakpointsByYear = {
-  2021: [
-    {min: 0, max: 24000, rate: .15},
-    {min: 24000, max: 53000, rate: .2},
-    {min: 53000, max: 190000, rate: .27},
-    {min: 190000, max: 650000, rate: .35},
-    {min: 650000, max: Infinity, rate: .4},
-  ],
   2022: [
     {min: 0, max: 32000, rate: .15},
     {min: 32000, max: 70000, rate: .20},
@@ -14,11 +7,11 @@ var TaxRateBreakpointsByYear = {
     {min: 880000, max: Infinity, rate: .4}
   ],
   2023: [
-    {min: 0, max: 71337, rate: .15},
-    {min: 71337, max: 156061, rate: .20},
-    {min: 156061, max: 378981, rate: .27},
-    {min: 378981, max: 1961784, rate: .35},
-    {min: 1961784, max: Infinity, rate: .4}
+    {min: 0, max: 70000, rate: .15},
+    {min: 70000, max: 150000, rate: .20},
+    {min: 150000, max: 370000, rate: .27},
+    {min: 370000, max: 1900000, rate: .35},
+    {min: 1900000, max: Infinity, rate: .4}
   ]
 };
 
@@ -55,7 +48,6 @@ function runCalculationModel(input) {
   var expenses = isNaN(input.expenses) ? 0 : Number(input.expenses);
   var exemptExportSoftware = !!input.exemptExportSoftware;
   var exemptUnder29 = !!input.exemptUnder29;
-  var bagkurAmount = exemptUnder29 || isNaN(input.bagkurLevel) ? 0 : Number(input.bagkurLevel) * 12660;
 
   var inputBreakdown = [
     {label: 'Base Taxables (Income)', value: income}
@@ -109,14 +101,13 @@ function runCalculationModel(input) {
     }
   });
 
-  var netIncome = income - totalTax - bagkurAmount;
+  var netIncome = income - totalTax;
   var effectiveTaxRate = totalTax / income;
 
   return {
     taxYear: taxYear,
     taxBreakpoints: taxBreakpoints,
     income: income,
-    bagkurAmount: bagkurAmount,
     inputBreakdown: inputBreakdown,
     totalTax: totalTax,
     expenses: expenses,
@@ -141,7 +132,6 @@ function init(form) {
       expenses: form.elements.expenses.value,
       exemptExportSoftware: form.elements.exemptExportSoftware.checked,
       exemptUnder29: form.elements.exemptUnder29.checked,
-      bagkurLevel: form.elements.bagkurLevel.value
     };
 
     if (isNaN(input.income)) {
@@ -196,7 +186,6 @@ function init(form) {
 
     resultsFooter.querySelector('[data-result="total-tax"]').innerText = formatAmount(-result.totalTax);
     resultsFooter.querySelector('[data-result="effective-tax-rate"]').innerText = '(~' + formatPercentage(result.effectiveTaxRate) + ' effective)';
-    resultsFooter.querySelector('[data-result="bagkur-amount"]').innerText = result.bagkurAmount > 0 ? formatAmount(-result.bagkurAmount) : '-';
 
     resultsFooter.querySelector('[data-result="net-income"]').innerText = formatAmount(result.netIncome);
     resultsFooter.querySelector('[data-result="net-income-monthly"]').innerText = formatAmount(result.netIncome / 12);
@@ -208,21 +197,6 @@ function init(form) {
   });
 
   form.addEventListener('change', rerender);
-
-  form.elements.bagkurLevel.addEventListener('change', function(e) {
-    var label = 'None';
-    if (Number(e.target.value) > 0) {
-      label = e.target.value + ' (' + formatAmount(e.target.value * 12660) + ' annually)';
-    }
-
-    Array.prototype.slice.call(e.target.labels).forEach(function(el) {
-      el.innerHTML = '<strong>' + label + '</strong>';
-    });
-  });
-
-  form.elements.exemptUnder29.addEventListener('change', function(e) {
-    inputTable.querySelector('[data-input="bagkurLevel"]').style.display = e.target.checked ? 'none' : null;
-  });
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
