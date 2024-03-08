@@ -1,3 +1,8 @@
+# Notice
+This repository is now archived and no longer receiving updates.
+
+Refer to [ygunayer/yalin.dev](https://github.com/ygunayer/yalin.dev) for the more recent and up-to-date version.
+
 # ygcom2
 The source code for my personal website, [http://yalingunayer.com](http://yalingunayer.com), built using Hexo.
 
